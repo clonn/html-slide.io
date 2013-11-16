@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html lang="ko"> 
+    <head> 
+        <meta charset="utf-8" />
+        <title>Socket.IO test page</title>
+        
+        <style>
+            
+        </style>
+        
+        <script src="socket.io/socket.io.js"></script>
+        <script>
+			var socket;
+
+			var connect = function(){
+				if (!socket) {
+					socket = new io.Socket(null);
+				}
+				if (!socket.connected) {
+					socket.connect();
+					socket.on('connect', function(){
+					   console.log("connected");
+					});
+					socket.on('message', function(msg){
+						console.log(msg);
+					});
+				}
+				socket.send("Hi!!");
+			}
+        </script>    
+    </head> 
+    
+    <body>
+        Hello World
+		<br/>
+		<button onclick="connect();">Push</button>
+    </body> 
+</html>
