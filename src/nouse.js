@@ -1,7 +1,3 @@
-function test(word){
-  return word + "hello world";
+function test(){
+  return "hello world";
 }
-
-test();
-
-test("i like git")
